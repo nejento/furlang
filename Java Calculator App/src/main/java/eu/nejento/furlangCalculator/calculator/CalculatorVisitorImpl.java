@@ -11,11 +11,11 @@ public class CalculatorVisitorImpl extends furlangBaseVisitor<String> {
 
         String left = null;
         if (ctx.left != null) {
-            left = this.visitOpexpr(ctx.left);
+            left = this.visit(ctx.left);
         }
         String right = null;
         if (ctx.right != null) {
-            right = this.visitOpexpr(ctx.right);
+            right = this.visit(ctx.right);
         }
         if (ctx.operator == null) {
             System.out.print("An operator of +, -, % is required to perform the operation\n");
@@ -30,6 +30,13 @@ public class CalculatorVisitorImpl extends furlangBaseVisitor<String> {
     public String visitLeafexpr(furlangParser.LeafexprContext ctx) {
         return ctx.toString();
     }
+
+    @Override
+    public String visitParexpr(furlangParser.ParexprContext ctx) {
+        return this.visit(ctx.expr());
+    }
+
+
 
 
 }
