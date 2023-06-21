@@ -1,0 +1,23 @@
+(2+)3
+2(*2)
+2+3)
+(2+3
+'Ahoj'
+"""
+2%%2
+2**2
+2++2
+#!Poznamka #!
+#! Poznamka#!
+#! ! !#
+!# 12 #!
+#! #! test !#
+"Bramb"ora"
+b20
+B01
+01
+001
+Vlk
+fvlk
+furry(Vlk)
+furry(fVlk)
