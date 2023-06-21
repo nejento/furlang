@@ -1,6 +1,6 @@
-D:\Projects\Java DEV\nLangCalculator\src\main\java\eu\nejento\nLangCalculator\calculator\Calculator.java
-D:\Projects\Java DEV\nLangCalculator\target\generated-sources\antlr4\eu\nejento\nLangCalculator\calculator\nLangLexer.java
-D:\Projects\Java DEV\nLangCalculator\target\generated-sources\antlr4\eu\nejento\nLangCalculator\calculator\nLangParser.java
-D:\Projects\Java DEV\nLangCalculator\target\generated-sources\antlr4\eu\nejento\nLangCalculator\calculator\nLangVisitor.java
-D:\Projects\Java DEV\nLangCalculator\src\main\java\eu\nejento\nLangCalculator\calculator\CalculatorVisitorImpl.java
-D:\Projects\Java DEV\nLangCalculator\target\generated-sources\antlr4\eu\nejento\nLangCalculator\calculator\nLangBaseVisitor.java
+D:\Projects\Java DEV\furlang\Java Calculator App\target\generated-sources\antlr4\eu\nejento\furlangCalculator\calculator\furlangBaseVisitor.java
+D:\Projects\Java DEV\furlang\Java Calculator App\target\generated-sources\antlr4\eu\nejento\furlangCalculator\calculator\furlangParser.java
+D:\Projects\Java DEV\furlang\Java Calculator App\src\main\java\eu\nejento\furlangCalculator\calculator\Calculator.java
+D:\Projects\Java DEV\furlang\Java Calculator App\target\generated-sources\antlr4\eu\nejento\furlangCalculator\calculator\furlangLexer.java
+D:\Projects\Java DEV\furlang\Java Calculator App\target\generated-sources\antlr4\eu\nejento\furlangCalculator\calculator\furlangVisitor.java
+D:\Projects\Java DEV\furlang\Java Calculator App\src\main\java\eu\nejento\furlangCalculator\calculator\CalculatorVisitorImpl.java
