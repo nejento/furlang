@@ -4,15 +4,15 @@ grammar furlang;
 root:	(expr NEWLINE)*;
 
 //Výrazy
-expr:	'(' expr ')'                      #parexpr
-    |   left=expr operator='*' right=expr #opexpr
-    |	left=expr operator='+' right=expr #opexpr
-    |   left=expr operator='%' right=expr #opexpr
-    |   TYPE                              #leafexpr
+expr:	'(' expr ')'                            #parexpr
+    |   left=expr operator=TIMES right=expr     #opexpr
+    |	left=expr operator=PLUS right=expr      #opexpr
+    |   left=expr operator=MODULO right=expr    #opexpr
+    |   leaf                                    #leafexpr
     ;
 
 //Datové typy
-TYPE            : INT
+leaf            : INT
                 | BINARY
                 | STRING
                 | ANIMAL
@@ -21,6 +21,11 @@ TYPE            : INT
                 | DECBIN
                 | FURRY
                 ;
+
+//Operátory
+TIMES           : '*';
+PLUS            : '+';
+MODULO          : '%';
 
 //Funkce
 BINDEC          : 'bindec(' BINARY ')';
