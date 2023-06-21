@@ -1,4 +1,5 @@
-// Generated from d:\Projects\Java DEV\furlang\VSCode ANTLR4 Definition\furlang.g4 by ANTLR 4.9.2
+// Generated from eu\nejento\nLangCalculator\calculator\nLang.g4 by ANTLR 4.10.1
+package eu.nejento.nLangCalculator.calculator;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -9,17 +10,16 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class furlangParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.9.2", RuntimeMetaData.VERSION); }
+public class nLangParser extends Parser {
+	static { RuntimeMetaData.checkVersion("4.10.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, TYPE=6, BINDEC=7, DECBIN=8, FURRY=9, 
-		NON_ZERO_DIGIT=10, DIGIT=11, INT_DEFAULT=12, INT=13, BINARY_DEFAULT=14, 
-		BINARY=15, STRING=16, ANIMALLIST=17, ANIMALS=18, ANIMAL=19, COMMENT=20, 
-		NEWLINE=21, WS=22;
+		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, TYPE=6, BINDEC=7, DECBIN=8, NON_ZERO_DIGIT=9, 
+		DIGIT=10, INT_DEFAULT=11, INT=12, BINARY_DEFAULT=13, BINARY=14, STRING=15, 
+		COMMENT=16, NEWLINE=17, WS=18;
 	public static final int
 		RULE_root = 0, RULE_expr = 1;
 	private static String[] makeRuleNames() {
@@ -37,9 +37,9 @@ public class furlangParser extends Parser {
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, null, null, null, "TYPE", "BINDEC", "DECBIN", "FURRY", 
-			"NON_ZERO_DIGIT", "DIGIT", "INT_DEFAULT", "INT", "BINARY_DEFAULT", "BINARY", 
-			"STRING", "ANIMALLIST", "ANIMALS", "ANIMAL", "COMMENT", "NEWLINE", "WS"
+			null, null, null, null, null, null, "TYPE", "BINDEC", "DECBIN", "NON_ZERO_DIGIT", 
+			"DIGIT", "INT_DEFAULT", "INT", "BINARY_DEFAULT", "BINARY", "STRING", 
+			"COMMENT", "NEWLINE", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -77,7 +77,7 @@ public class furlangParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "furlang.g4"; }
+	public String getGrammarFileName() { return "nLang.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -88,7 +88,7 @@ public class furlangParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public furlangParser(TokenStream input) {
+	public nLangParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
@@ -100,14 +100,19 @@ public class furlangParser extends Parser {
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
 		}
-		public List<TerminalNode> NEWLINE() { return getTokens(furlangParser.NEWLINE); }
+		public List<TerminalNode> NEWLINE() { return getTokens(nLangParser.NEWLINE); }
 		public TerminalNode NEWLINE(int i) {
-			return getToken(furlangParser.NEWLINE, i);
+			return getToken(nLangParser.NEWLINE, i);
 		}
 		public RootContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_root; }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof nLangVisitor ) return ((nLangVisitor<? extends T>)visitor).visitRoot(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final RootContext root() throws RecognitionException {
@@ -147,17 +152,52 @@ public class furlangParser extends Parser {
 	}
 
 	public static class ExprContext extends ParserRuleContext {
+		public ExprContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_expr; }
+	 
+		public ExprContext() { }
+		public void copyFrom(ExprContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class ParexprContext extends ExprContext {
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public ParexprContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof nLangVisitor ) return ((nLangVisitor<? extends T>)visitor).visitParexpr(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class LeafexprContext extends ExprContext {
+		public TerminalNode TYPE() { return getToken(nLangParser.TYPE, 0); }
+		public LeafexprContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof nLangVisitor ) return ((nLangVisitor<? extends T>)visitor).visitLeafexpr(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class OpexprContext extends ExprContext {
+		public ExprContext left;
+		public Token operator;
+		public ExprContext right;
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
 		}
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
 		}
-		public TerminalNode TYPE() { return getToken(furlangParser.TYPE, 0); }
-		public ExprContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
+		public OpexprContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof nLangVisitor ) return ((nLangVisitor<? extends T>)visitor).visitOpexpr(this);
+			else return visitor.visitChildren(this);
 		}
-		@Override public int getRuleIndex() { return RULE_expr; }
 	}
 
 	public final ExprContext expr() throws RecognitionException {
@@ -180,6 +220,10 @@ public class furlangParser extends Parser {
 			switch (_input.LA(1)) {
 			case T__3:
 				{
+				_localctx = new ParexprContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+
 				setState(13);
 				match(T__3);
 				setState(14);
@@ -190,6 +234,9 @@ public class furlangParser extends Parser {
 				break;
 			case TYPE:
 				{
+				_localctx = new LeafexprContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(17);
 				match(TYPE);
 				}
@@ -211,44 +258,47 @@ public class furlangParser extends Parser {
 					switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 					case 1:
 						{
-						_localctx = new ExprContext(_parentctx, _parentState);
+						_localctx = new OpexprContext(new ExprContext(_parentctx, _parentState));
+						((OpexprContext)_localctx).left = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(20);
 						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
 						{
 						setState(21);
-						match(T__0);
+						((OpexprContext)_localctx).operator = match(T__0);
 						}
 						setState(22);
-						expr(6);
+						((OpexprContext)_localctx).right = expr(6);
 						}
 						break;
 					case 2:
 						{
-						_localctx = new ExprContext(_parentctx, _parentState);
+						_localctx = new OpexprContext(new ExprContext(_parentctx, _parentState));
+						((OpexprContext)_localctx).left = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(23);
 						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
 						{
 						setState(24);
-						match(T__1);
+						((OpexprContext)_localctx).operator = match(T__1);
 						}
 						setState(25);
-						expr(5);
+						((OpexprContext)_localctx).right = expr(5);
 						}
 						break;
 					case 3:
 						{
-						_localctx = new ExprContext(_parentctx, _parentState);
+						_localctx = new OpexprContext(new ExprContext(_parentctx, _parentState));
+						((OpexprContext)_localctx).left = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(26);
 						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
 						{
 						setState(27);
-						match(T__2);
+						((OpexprContext)_localctx).operator = match(T__2);
 						}
 						setState(28);
-						expr(4);
+						((OpexprContext)_localctx).right = expr(4);
 						}
 						break;
 					}
@@ -291,17 +341,31 @@ public class furlangParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\30%\4\2\t\2\4\3\t"+
-		"\3\3\2\3\2\3\2\7\2\n\n\2\f\2\16\2\r\13\2\3\3\3\3\3\3\3\3\3\3\3\3\5\3\25"+
-		"\n\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\7\3 \n\3\f\3\16\3#\13\3\3\3\2"+
-		"\3\4\4\2\4\2\2\2\'\2\13\3\2\2\2\4\24\3\2\2\2\6\7\5\4\3\2\7\b\7\27\2\2"+
-		"\b\n\3\2\2\2\t\6\3\2\2\2\n\r\3\2\2\2\13\t\3\2\2\2\13\f\3\2\2\2\f\3\3\2"+
-		"\2\2\r\13\3\2\2\2\16\17\b\3\1\2\17\20\7\6\2\2\20\21\5\4\3\2\21\22\7\7"+
-		"\2\2\22\25\3\2\2\2\23\25\7\b\2\2\24\16\3\2\2\2\24\23\3\2\2\2\25!\3\2\2"+
-		"\2\26\27\f\7\2\2\27\30\7\3\2\2\30 \5\4\3\b\31\32\f\6\2\2\32\33\7\4\2\2"+
-		"\33 \5\4\3\7\34\35\f\5\2\2\35\36\7\5\2\2\36 \5\4\3\6\37\26\3\2\2\2\37"+
-		"\31\3\2\2\2\37\34\3\2\2\2 #\3\2\2\2!\37\3\2\2\2!\"\3\2\2\2\"\5\3\2\2\2"+
-		"#!\3\2\2\2\6\13\24\37!";
+		"\u0004\u0001\u0012#\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0001"+
+		"\u0000\u0001\u0000\u0001\u0000\u0005\u0000\b\b\u0000\n\u0000\f\u0000\u000b"+
+		"\t\u0000\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
+		"\u0001\u0003\u0001\u0013\b\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
+		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0005"+
+		"\u0001\u001e\b\u0001\n\u0001\f\u0001!\t\u0001\u0001\u0001\u0000\u0001"+
+		"\u0002\u0002\u0000\u0002\u0000\u0000%\u0000\t\u0001\u0000\u0000\u0000"+
+		"\u0002\u0012\u0001\u0000\u0000\u0000\u0004\u0005\u0003\u0002\u0001\u0000"+
+		"\u0005\u0006\u0005\u0011\u0000\u0000\u0006\b\u0001\u0000\u0000\u0000\u0007"+
+		"\u0004\u0001\u0000\u0000\u0000\b\u000b\u0001\u0000\u0000\u0000\t\u0007"+
+		"\u0001\u0000\u0000\u0000\t\n\u0001\u0000\u0000\u0000\n\u0001\u0001\u0000"+
+		"\u0000\u0000\u000b\t\u0001\u0000\u0000\u0000\f\r\u0006\u0001\uffff\uffff"+
+		"\u0000\r\u000e\u0005\u0004\u0000\u0000\u000e\u000f\u0003\u0002\u0001\u0000"+
+		"\u000f\u0010\u0005\u0005\u0000\u0000\u0010\u0013\u0001\u0000\u0000\u0000"+
+		"\u0011\u0013\u0005\u0006\u0000\u0000\u0012\f\u0001\u0000\u0000\u0000\u0012"+
+		"\u0011\u0001\u0000\u0000\u0000\u0013\u001f\u0001\u0000\u0000\u0000\u0014"+
+		"\u0015\n\u0005\u0000\u0000\u0015\u0016\u0005\u0001\u0000\u0000\u0016\u001e"+
+		"\u0003\u0002\u0001\u0006\u0017\u0018\n\u0004\u0000\u0000\u0018\u0019\u0005"+
+		"\u0002\u0000\u0000\u0019\u001e\u0003\u0002\u0001\u0005\u001a\u001b\n\u0003"+
+		"\u0000\u0000\u001b\u001c\u0005\u0003\u0000\u0000\u001c\u001e\u0003\u0002"+
+		"\u0001\u0004\u001d\u0014\u0001\u0000\u0000\u0000\u001d\u0017\u0001\u0000"+
+		"\u0000\u0000\u001d\u001a\u0001\u0000\u0000\u0000\u001e!\u0001\u0000\u0000"+
+		"\u0000\u001f\u001d\u0001\u0000\u0000\u0000\u001f \u0001\u0000\u0000\u0000"+
+		" \u0003\u0001\u0000\u0000\u0000!\u001f\u0001\u0000\u0000\u0000\u0004\t"+
+		"\u0012\u001d\u001f";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
