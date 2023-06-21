@@ -1,4 +1,5 @@
 eu\nejento\furlangCalculator\calculator\Calculator.class
+eu\nejento\furlangCalculator\calculator\CalculatorVisitorImpl.class
 eu\nejento\furlangCalculator\calculator\ErrorListener.class
 eu\nejento\furlangCalculator\calculator\furlangLexer.class
 eu\nejento\furlangCalculator\calculator\furlangParser$ExprContext.class
