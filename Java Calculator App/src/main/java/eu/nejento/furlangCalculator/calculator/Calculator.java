@@ -1,4 +1,4 @@
-package eu.nejento.nLangCalculator.calculator;
+package eu.nejento.furlangCalculator.calculator;
 
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
@@ -24,9 +24,9 @@ public class Calculator {
     }
 
     private Double compile(CharStream source) {
-        nLangLexer lexer = new nLangLexer(source);
+        furlangLexer lexer = new furlangLexer(source);
         CommonTokenStream tokenStream = new CommonTokenStream(lexer);
-        nLangParser parser = new nLangParser(tokenStream);
+        furlangParser parser = new furlangParser(tokenStream);
         ParseTree tree = parser.operation();
         CalculatorVisitorImpl visitor = new CalculatorVisitorImpl();
         return visitor.visit(tree);

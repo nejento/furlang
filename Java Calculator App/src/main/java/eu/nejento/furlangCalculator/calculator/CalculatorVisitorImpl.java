@@ -1,8 +1,8 @@
-package eu.nejento.nLangCalculator.calculator;
+package eu.nejento.furlangCalculator.calculator;
 
 import java.util.Locale;
 
-public class CalculatorVisitorImpl extends nLangBaseVisitor<Double> {
+public class CalculatorVisitorImpl extends furlangBaseVisitor<Double> {
 
     private String handleInt(String left, String operator, String right){
         int L = 0;
@@ -63,7 +63,7 @@ public class CalculatorVisitorImpl extends nLangBaseVisitor<Double> {
     }
 
     @Override
-    public Double visitOpexpr(nLangParser.OpexprContext ctx) {
+    public Double visitOpexpr(furlangParser.OpexprContext ctx) {
 
         String left = null;
         if (ctx.left != null) {
@@ -131,12 +131,12 @@ public class CalculatorVisitorImpl extends nLangBaseVisitor<Double> {
     }
 
     @Override
-    public Double visitParexpr(nLangParser.ParexprContext ctx) {
+    public Double visitParexpr(furlangParser.ParexprContext ctx) {
         return this.visit(ctx.expr());
     }
 
     @Override
-    public String visitLeafexpr(nLangParser.LeafexprContext ctx) {
+    public String visitLeafexpr(furlangParser.LeafexprContext ctx) {
         return ctx.getText();
     }
 }

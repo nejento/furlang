@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>eu.nejento</groupId>
-    <artifactId>nLangCalculator</artifactId>
+    <artifactId>furlangCalculator</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -14,11 +14,13 @@
     </properties>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.antlr/antlr4-runtime -->
         <dependency>
             <groupId>org.antlr</groupId>
             <artifactId>antlr4-runtime</artifactId>
-            <version>4.10.1</version>
+            <version>4.13.0</version>
         </dependency>
+
     </dependencies>
 
 

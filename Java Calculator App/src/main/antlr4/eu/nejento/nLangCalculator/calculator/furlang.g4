@@ -1,1 +1,0 @@
-D:/Projects/Java DEV/furlang/VSCode ANTLR4 Definition/furlang.g4

@@ -1,5 +1,4 @@
-// Generated from eu\nejento\nLangCalculator\calculator\nLang.g4 by ANTLR 4.10.1
-package eu.nejento.nLangCalculator.calculator;
+// Generated from D:/Projects/Java DEV/furlang/Java Calculator App/src/main/antlr4/eu/nejento/furlangCalculator/calculator\furlang.g4 by ANTLR 4.12.0
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -9,17 +8,18 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
 
-@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class nLangParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.10.1", RuntimeMetaData.VERSION); }
+@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
+public class furlangParser extends Parser {
+	static { RuntimeMetaData.checkVersion("4.12.0", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, TYPE=6, BINDEC=7, DECBIN=8, NON_ZERO_DIGIT=9, 
-		DIGIT=10, INT_DEFAULT=11, INT=12, BINARY_DEFAULT=13, BINARY=14, STRING=15, 
-		COMMENT=16, NEWLINE=17, WS=18;
+		T__0=1, T__1=2, PLUS=3, TIMES=4, MODULO=5, TYPE=6, BINDEC=7, DECBIN=8, 
+		FURRY=9, NON_ZERO_DIGIT=10, DIGIT=11, INT_DEFAULT=12, INT=13, BINARY_DEFAULT=14, 
+		BINARY=15, STRING=16, ANIMALLIST=17, ANIMALS=18, ANIMAL=19, COMMENT=20, 
+		NEWLINE=21, WS=22;
 	public static final int
 		RULE_root = 0, RULE_expr = 1;
 	private static String[] makeRuleNames() {
@@ -31,15 +31,16 @@ public class nLangParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'*'", "'+'", "'%'", "'('", "')'"
+			null, "'('", "')'", "'+'", "'*'", "'%'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, null, null, null, "TYPE", "BINDEC", "DECBIN", "NON_ZERO_DIGIT", 
-			"DIGIT", "INT_DEFAULT", "INT", "BINARY_DEFAULT", "BINARY", "STRING", 
-			"COMMENT", "NEWLINE", "WS"
+			null, null, null, "PLUS", "TIMES", "MODULO", "TYPE", "BINDEC", "DECBIN", 
+			"FURRY", "NON_ZERO_DIGIT", "DIGIT", "INT_DEFAULT", "INT", "BINARY_DEFAULT", 
+			"BINARY", "STRING", "ANIMALLIST", "ANIMALS", "ANIMAL", "COMMENT", "NEWLINE", 
+			"WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -77,7 +78,7 @@ public class nLangParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "nLang.g4"; }
+	public String getGrammarFileName() { return "furlang.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -88,11 +89,12 @@ public class nLangParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public nLangParser(TokenStream input) {
+	public furlangParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class RootContext extends ParserRuleContext {
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
@@ -100,17 +102,25 @@ public class nLangParser extends Parser {
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
 		}
-		public List<TerminalNode> NEWLINE() { return getTokens(nLangParser.NEWLINE); }
+		public List<TerminalNode> NEWLINE() { return getTokens(furlangParser.NEWLINE); }
 		public TerminalNode NEWLINE(int i) {
-			return getToken(nLangParser.NEWLINE, i);
+			return getToken(furlangParser.NEWLINE, i);
 		}
 		public RootContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_root; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof furlangListener ) ((furlangListener)listener).enterRoot(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof furlangListener ) ((furlangListener)listener).exitRoot(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof nLangVisitor ) return ((nLangVisitor<? extends T>)visitor).visitRoot(this);
+			if ( visitor instanceof furlangVisitor ) return ((furlangVisitor<? extends T>)visitor).visitRoot(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -125,7 +135,7 @@ public class nLangParser extends Parser {
 			setState(9);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (_la==T__3 || _la==TYPE) {
+			while (_la==T__0 || _la==TYPE) {
 				{
 				{
 				setState(4);
@@ -151,38 +161,8 @@ public class nLangParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class ExprContext extends ParserRuleContext {
-		public ExprContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_expr; }
-	 
-		public ExprContext() { }
-		public void copyFrom(ExprContext ctx) {
-			super.copyFrom(ctx);
-		}
-	}
-	public static class ParexprContext extends ExprContext {
-		public ExprContext expr() {
-			return getRuleContext(ExprContext.class,0);
-		}
-		public ParexprContext(ExprContext ctx) { copyFrom(ctx); }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof nLangVisitor ) return ((nLangVisitor<? extends T>)visitor).visitParexpr(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	public static class LeafexprContext extends ExprContext {
-		public TerminalNode TYPE() { return getToken(nLangParser.TYPE, 0); }
-		public LeafexprContext(ExprContext ctx) { copyFrom(ctx); }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof nLangVisitor ) return ((nLangVisitor<? extends T>)visitor).visitLeafexpr(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	public static class OpexprContext extends ExprContext {
 		public ExprContext left;
 		public Token operator;
 		public ExprContext right;
@@ -192,10 +172,25 @@ public class nLangParser extends Parser {
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
 		}
-		public OpexprContext(ExprContext ctx) { copyFrom(ctx); }
+		public TerminalNode TYPE() { return getToken(furlangParser.TYPE, 0); }
+		public TerminalNode TIMES() { return getToken(furlangParser.TIMES, 0); }
+		public TerminalNode PLUS() { return getToken(furlangParser.PLUS, 0); }
+		public TerminalNode MODULO() { return getToken(furlangParser.MODULO, 0); }
+		public ExprContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_expr; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof furlangListener ) ((furlangListener)listener).enterExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof furlangListener ) ((furlangListener)listener).exitExpr(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof nLangVisitor ) return ((nLangVisitor<? extends T>)visitor).visitOpexpr(this);
+			if ( visitor instanceof furlangVisitor ) return ((furlangVisitor<? extends T>)visitor).visitExpr(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -218,25 +213,18 @@ public class nLangParser extends Parser {
 			setState(18);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
-			case T__3:
+			case T__0:
 				{
-				_localctx = new ParexprContext(_localctx);
-				_ctx = _localctx;
-				_prevctx = _localctx;
-
 				setState(13);
-				match(T__3);
+				match(T__0);
 				setState(14);
 				expr(0);
 				setState(15);
-				match(T__4);
+				match(T__1);
 				}
 				break;
 			case TYPE:
 				{
-				_localctx = new LeafexprContext(_localctx);
-				_ctx = _localctx;
-				_prevctx = _localctx;
 				setState(17);
 				match(TYPE);
 				}
@@ -258,47 +246,41 @@ public class nLangParser extends Parser {
 					switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 					case 1:
 						{
-						_localctx = new OpexprContext(new ExprContext(_parentctx, _parentState));
-						((OpexprContext)_localctx).left = _prevctx;
+						_localctx = new ExprContext(_parentctx, _parentState);
+						_localctx.left = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(20);
-						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
-						{
+						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
 						setState(21);
-						((OpexprContext)_localctx).operator = match(T__0);
-						}
+						((ExprContext)_localctx).operator = match(TIMES);
 						setState(22);
-						((OpexprContext)_localctx).right = expr(6);
+						((ExprContext)_localctx).right = expr(5);
 						}
 						break;
 					case 2:
 						{
-						_localctx = new OpexprContext(new ExprContext(_parentctx, _parentState));
-						((OpexprContext)_localctx).left = _prevctx;
+						_localctx = new ExprContext(_parentctx, _parentState);
+						_localctx.left = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(23);
-						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
-						{
+						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
 						setState(24);
-						((OpexprContext)_localctx).operator = match(T__1);
-						}
+						((ExprContext)_localctx).operator = match(PLUS);
 						setState(25);
-						((OpexprContext)_localctx).right = expr(5);
+						((ExprContext)_localctx).right = expr(4);
 						}
 						break;
 					case 3:
 						{
-						_localctx = new OpexprContext(new ExprContext(_parentctx, _parentState));
-						((OpexprContext)_localctx).left = _prevctx;
+						_localctx = new ExprContext(_parentctx, _parentState);
+						_localctx.left = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(26);
-						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-						{
+						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
 						setState(27);
-						((OpexprContext)_localctx).operator = match(T__2);
-						}
+						((ExprContext)_localctx).operator = match(MODULO);
 						setState(28);
-						((OpexprContext)_localctx).right = expr(4);
+						((ExprContext)_localctx).right = expr(3);
 						}
 						break;
 					}
@@ -331,17 +313,17 @@ public class nLangParser extends Parser {
 	private boolean expr_sempred(ExprContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 0:
-			return precpred(_ctx, 5);
-		case 1:
 			return precpred(_ctx, 4);
-		case 2:
+		case 1:
 			return precpred(_ctx, 3);
+		case 2:
+			return precpred(_ctx, 2);
 		}
 		return true;
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001\u0012#\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0001"+
+		"\u0004\u0001\u0016#\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0001"+
 		"\u0000\u0001\u0000\u0001\u0000\u0005\u0000\b\b\u0000\n\u0000\f\u0000\u000b"+
 		"\t\u0000\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
 		"\u0001\u0003\u0001\u0013\b\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
@@ -349,19 +331,19 @@ public class nLangParser extends Parser {
 		"\u0001\u001e\b\u0001\n\u0001\f\u0001!\t\u0001\u0001\u0001\u0000\u0001"+
 		"\u0002\u0002\u0000\u0002\u0000\u0000%\u0000\t\u0001\u0000\u0000\u0000"+
 		"\u0002\u0012\u0001\u0000\u0000\u0000\u0004\u0005\u0003\u0002\u0001\u0000"+
-		"\u0005\u0006\u0005\u0011\u0000\u0000\u0006\b\u0001\u0000\u0000\u0000\u0007"+
+		"\u0005\u0006\u0005\u0015\u0000\u0000\u0006\b\u0001\u0000\u0000\u0000\u0007"+
 		"\u0004\u0001\u0000\u0000\u0000\b\u000b\u0001\u0000\u0000\u0000\t\u0007"+
 		"\u0001\u0000\u0000\u0000\t\n\u0001\u0000\u0000\u0000\n\u0001\u0001\u0000"+
 		"\u0000\u0000\u000b\t\u0001\u0000\u0000\u0000\f\r\u0006\u0001\uffff\uffff"+
-		"\u0000\r\u000e\u0005\u0004\u0000\u0000\u000e\u000f\u0003\u0002\u0001\u0000"+
-		"\u000f\u0010\u0005\u0005\u0000\u0000\u0010\u0013\u0001\u0000\u0000\u0000"+
+		"\u0000\r\u000e\u0005\u0001\u0000\u0000\u000e\u000f\u0003\u0002\u0001\u0000"+
+		"\u000f\u0010\u0005\u0002\u0000\u0000\u0010\u0013\u0001\u0000\u0000\u0000"+
 		"\u0011\u0013\u0005\u0006\u0000\u0000\u0012\f\u0001\u0000\u0000\u0000\u0012"+
 		"\u0011\u0001\u0000\u0000\u0000\u0013\u001f\u0001\u0000\u0000\u0000\u0014"+
-		"\u0015\n\u0005\u0000\u0000\u0015\u0016\u0005\u0001\u0000\u0000\u0016\u001e"+
-		"\u0003\u0002\u0001\u0006\u0017\u0018\n\u0004\u0000\u0000\u0018\u0019\u0005"+
-		"\u0002\u0000\u0000\u0019\u001e\u0003\u0002\u0001\u0005\u001a\u001b\n\u0003"+
-		"\u0000\u0000\u001b\u001c\u0005\u0003\u0000\u0000\u001c\u001e\u0003\u0002"+
-		"\u0001\u0004\u001d\u0014\u0001\u0000\u0000\u0000\u001d\u0017\u0001\u0000"+
+		"\u0015\n\u0004\u0000\u0000\u0015\u0016\u0005\u0004\u0000\u0000\u0016\u001e"+
+		"\u0003\u0002\u0001\u0005\u0017\u0018\n\u0003\u0000\u0000\u0018\u0019\u0005"+
+		"\u0003\u0000\u0000\u0019\u001e\u0003\u0002\u0001\u0004\u001a\u001b\n\u0002"+
+		"\u0000\u0000\u001b\u001c\u0005\u0005\u0000\u0000\u001c\u001e\u0003\u0002"+
+		"\u0001\u0003\u001d\u0014\u0001\u0000\u0000\u0000\u001d\u0017\u0001\u0000"+
 		"\u0000\u0000\u001d\u001a\u0001\u0000\u0000\u0000\u001e!\u0001\u0000\u0000"+
 		"\u0000\u001f\u001d\u0001\u0000\u0000\u0000\u001f \u0001\u0000\u0000\u0000"+
 		" \u0003\u0001\u0000\u0000\u0000!\u001f\u0001\u0000\u0000\u0000\u0004\t"+
