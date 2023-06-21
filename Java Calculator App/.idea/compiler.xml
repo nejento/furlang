@@ -9,5 +9,8 @@
         <module name="furlangCalculator" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="antlr" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>

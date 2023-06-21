@@ -18,16 +18,25 @@ public class Calculator {
         System.out.println(calculator.calculate("5 # 3"));  // Error: line 1:2 token recognition error at: '#'
     }
 
-    private Double calculate(String source) {
+    private String calculate(String source) {
         CodePointCharStream input = CharStreams.fromString(source);
         return compile(input);
     }
 
-    private Double compile(CharStream source) {
+    private String compile(CharStream source) {
+        ErrorListener errorListener = new ErrorListener();
+
         furlangLexer lexer = new furlangLexer(source);
+        lexer.removeErrorListeners();
+        lexer.addErrorListener( errorListener );
+
         CommonTokenStream tokenStream = new CommonTokenStream(lexer);
+
         furlangParser parser = new furlangParser(tokenStream);
-        ParseTree tree = parser.operation();
+        parser.removeErrorListeners();
+        parser.addErrorListener( errorListener );
+
+        ParseTree tree = parser.expr();
         CalculatorVisitorImpl visitor = new CalculatorVisitorImpl();
         return visitor.visit(tree);
     }

@@ -4,17 +4,12 @@ grammar furlang;
 root:	(expr NEWLINE)*;
 
 //Výrazy
-expr:	'(' expr ')'
-    |   left=expr operator=TIMES right=expr
-    |	left=expr operator=PLUS right=expr
-    |   left=expr operator=MODULO right=expr
-    |   TYPE
+expr:	'(' expr ')'                      #parexpr
+    |   left=expr operator='*' right=expr #opexpr
+    |	left=expr operator='+' right=expr #opexpr
+    |   left=expr operator='%' right=expr #opexpr
+    |   TYPE                              #leafexpr
     ;
-
-//Operátory
-PLUS            : '+';
-TIMES           : '*';
-MODULO          : '%';
 
 //Datové typy
 TYPE            : INT
