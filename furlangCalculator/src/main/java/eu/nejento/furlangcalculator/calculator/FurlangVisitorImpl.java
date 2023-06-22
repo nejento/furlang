@@ -118,6 +118,16 @@ public class FurlangVisitorImpl extends FurlangBaseVisitor<String> {
 
     @Override
     public String visitLeafexpr(FurlangParser.LeafexprContext ctx) {
+        System.out.println("Leafexpr: " + ctx.getText());
+
+        // If leafexp is decbin(10) convert the decimal to binary number
+        if (ctx.getText().toLowerCase(Locale.ROOT).startsWith("decbin(") && ctx.getText().endsWith(")"))
+            return "b" + Integer.toBinaryString(Integer.parseInt(ctx.getText().substring(7, ctx.getText().length() - 1)));
+
+        // If leafexp is bindec(b101) convert the binary to decimal number
+        if (ctx.getText().toLowerCase(Locale.ROOT).startsWith("bindec(b") && ctx.getText().endsWith(")"))
+            return Integer.toString(Integer.parseInt(ctx.getText().substring(8, ctx.getText().length() - 1), 2));
+
         return ctx.getText();
     }
 }

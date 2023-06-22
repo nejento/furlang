@@ -21,6 +21,8 @@ b01+b01
 b01*b10
 "Bota"+"Ponožka"
 "Bota"*2
+bindec(b101)
+decbin(5)
 2*(1+1)
 2*(1+1)
 2*(1+1)
