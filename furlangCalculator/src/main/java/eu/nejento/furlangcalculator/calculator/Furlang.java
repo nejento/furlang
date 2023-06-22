@@ -15,7 +15,6 @@ public class Furlang {
     public static void main(String[] args) {
 
         Furlang calculator = new Furlang();
-        /*
 
         String basePath = new File("").getAbsolutePath();
 
@@ -58,8 +57,8 @@ public class Furlang {
             }
             System.out.println(line + " = " + res);
         }
-        */
 
+        /*
         System.out.println(calculator.calculate("2 + 5\n") + " should be 7");  // 7
         System.out.println(calculator.calculate("2 + 5\n") + " should be 7");  // 7
         System.out.println(calculator.calculate("2 * 5\n") + " should be 10");  // 10
@@ -67,7 +66,7 @@ public class Furlang {
         System.out.println(calculator.calculate("2 * 5\n") + " should be 10");  // -10
         System.out.println(calculator.calculate("3 % 5\n") + " should be 1");  // 011 & 101 = 001 => 1
         System.out.println(calculator.calculate("(2 + 5) * 3\n") + " should be 21");  // 7.0
-
+        */
     }
 
     private String calculate(String source) {

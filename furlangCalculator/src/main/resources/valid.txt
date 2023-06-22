@@ -10,7 +10,7 @@ b10
 b011 % b110
 "Brambora"
 "'Brambora'"
-#! test !#
+"Ahoj"/* komentář */
 ""
 "ahoj"
 "\n\nahoj"
