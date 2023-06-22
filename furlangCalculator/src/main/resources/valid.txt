@@ -31,4 +31,9 @@ decbin(5)
 fVlk
 fMývalVlk
 furry(4)
+furry(45)
 fVlk + fVlk
+fVlk + 2
+2 + fVlk
+fVlk + fPes
+"Ponožka" * fKůň
