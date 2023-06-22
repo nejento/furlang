@@ -37,3 +37,4 @@ fVlk + 2
 2 + fVlk
 fVlk + fPes
 "Ponožka" * fKůň
+b101 + decbin(5)

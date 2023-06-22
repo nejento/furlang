@@ -32,10 +32,10 @@ DECBIN          : 'decbin(' INT ')';
 FURRY           : 'furry(' INT ')';
 
 //Int
-//NON_ZERO_DIGIT  : '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9';
-//DIGIT           : '0' | NON_ZERO_DIGIT;
-//INT_DEFAULT     : NON_ZERO_DIGIT DIGIT*;
-INT_DEFAULT     : (('1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9') ('1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '0')*) | '0';
+NON_ZERO_DIGIT  : '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9';
+DIGIT           : '0' | NON_ZERO_DIGIT;
+INT_DEFAULT     : NON_ZERO_DIGIT DIGIT*;
+//INT_DEFAULT     : (('1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9') ('1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '0')*) | '0';
 INT             : INT_DEFAULT | BINDEC;
 
 //Binary

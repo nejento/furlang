@@ -21,7 +21,6 @@ public class Furlang {
         String validTestPath = "\\src\\main\\resources\\valid.txt";
         String invalidTestPath = "\\src\\main\\resources\\invalid.txt";
 
-
         System.out.println("Testing valid expressions");
         File validFile = new File(basePath+validTestPath);
         try {
@@ -37,7 +36,7 @@ public class Furlang {
         System.out.println("\nTesting invalid expressions");
 
         File invalidFile = new File(basePath+invalidTestPath);
-        Scanner invalidFileReader = null;
+        Scanner invalidFileReader;
         try {
             invalidFileReader = new Scanner(invalidFile);
         } catch (FileNotFoundException e) {

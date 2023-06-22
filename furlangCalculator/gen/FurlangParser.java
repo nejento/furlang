@@ -17,8 +17,9 @@ public class FurlangParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		T__0=1, T__1=2, LIST=3, PLUS=4, TIMES=5, MODULO=6, BINDEC=7, DECBIN=8, 
-		FURRY=9, INT_DEFAULT=10, INT=11, BINARY_DEFAULT=12, BINARY=13, STRING=14, 
-		ANIMALLIST=15, ANIMALS=16, ANIMAL=17, COMMENT=18, NEWLINE=19, WS=20;
+		FURRY=9, NON_ZERO_DIGIT=10, DIGIT=11, INT_DEFAULT=12, INT=13, BINARY_DEFAULT=14, 
+		BINARY=15, STRING=16, ANIMALLIST=17, ANIMALS=18, ANIMAL=19, COMMENT=20, 
+		NEWLINE=21, WS=22;
 	public static final int
 		RULE_root = 0, RULE_expr = 1;
 	private static String[] makeRuleNames() {
@@ -37,8 +38,9 @@ public class FurlangParser extends Parser {
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, null, null, "LIST", "PLUS", "TIMES", "MODULO", "BINDEC", "DECBIN", 
-			"FURRY", "INT_DEFAULT", "INT", "BINARY_DEFAULT", "BINARY", "STRING", 
-			"ANIMALLIST", "ANIMALS", "ANIMAL", "COMMENT", "NEWLINE", "WS"
+			"FURRY", "NON_ZERO_DIGIT", "DIGIT", "INT_DEFAULT", "INT", "BINARY_DEFAULT", 
+			"BINARY", "STRING", "ANIMALLIST", "ANIMALS", "ANIMAL", "COMMENT", "NEWLINE", 
+			"WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -374,7 +376,7 @@ public class FurlangParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001\u0014\"\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0001"+
+		"\u0004\u0001\u0016\"\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0001"+
 		"\u0000\u0001\u0000\u0001\u0000\u0004\u0000\b\b\u0000\u000b\u0000\f\u0000"+
 		"\t\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
 		"\u0003\u0001\u0012\b\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
@@ -382,7 +384,7 @@ public class FurlangParser extends Parser {
 		"\u001d\b\u0001\n\u0001\f\u0001 \t\u0001\u0001\u0001\u0000\u0001\u0002"+
 		"\u0002\u0000\u0002\u0000\u0000$\u0000\u0007\u0001\u0000\u0000\u0000\u0002"+
 		"\u0011\u0001\u0000\u0000\u0000\u0004\u0005\u0003\u0002\u0001\u0000\u0005"+
-		"\u0006\u0005\u0013\u0000\u0000\u0006\b\u0001\u0000\u0000\u0000\u0007\u0004"+
+		"\u0006\u0005\u0015\u0000\u0000\u0006\b\u0001\u0000\u0000\u0000\u0007\u0004"+
 		"\u0001\u0000\u0000\u0000\b\t\u0001\u0000\u0000\u0000\t\u0007\u0001\u0000"+
 		"\u0000\u0000\t\n\u0001\u0000\u0000\u0000\n\u0001\u0001\u0000\u0000\u0000"+
 		"\u000b\f\u0006\u0001\uffff\uffff\u0000\f\r\u0005\u0001\u0000\u0000\r\u000e"+

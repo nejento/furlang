@@ -188,12 +188,12 @@ public class FurlangVisitorImpl extends FurlangBaseVisitor<String> {
 
         String left = null;
         if (ctx.left != null) {
-            System.out.println("Left: " + ctx.left.getText());
+            //System.out.println("Left: " + ctx.left.getText());
             left = this.visit(ctx.left);
         }
         String right = null;
         if (ctx.right != null) {
-            System.out.println("Right: " + ctx.right.getText());
+            //System.out.println("Right: " + ctx.right.getText());
             right = this.visit(ctx.right);
         }
 
@@ -202,15 +202,14 @@ public class FurlangVisitorImpl extends FurlangBaseVisitor<String> {
             return null;
         }
         String operator = ctx.operator.getText();
-        System.out.println("Operator: " + operator);
+        //System.out.println("Operator: " + operator);
 
-        System.out.println("Opexpr: " + ctx.getText());
+        //System.out.println("Opexpr: " + ctx.getText());
 
         boolean b = right.toLowerCase(Locale.ROOT).startsWith("b0") || right.toLowerCase(Locale.ROOT).startsWith("b1");
         if (b) {
-            if (left == null || left.toLowerCase(Locale.ROOT).startsWith("b0") || left.toLowerCase(Locale.ROOT).startsWith("b1")) {
+            if (left == null || left.toLowerCase(Locale.ROOT).startsWith("b0") || left.toLowerCase(Locale.ROOT).startsWith("b1"))
                 return handleBool(left, operator, right);
-            }
             System.out.println("Can't mix bool and not bool together\n");
             return null;
         } else if (left != null && (left.toLowerCase(Locale.ROOT).startsWith("b0") || left.toLowerCase(Locale.ROOT).startsWith("b1"))) {
@@ -222,7 +221,6 @@ public class FurlangVisitorImpl extends FurlangBaseVisitor<String> {
         // fVlk + fPes = fKůň //left furry operation
         // 2 + fVlk = 5       //right furry operation
         // null + fVlk = 3    //right furry operation
-
         if (left.toLowerCase(Locale.ROOT).startsWith("f")) {
             if (right.toLowerCase(Locale.ROOT).startsWith("f") || isNumeric(right)) {
                 return handleLeftFurry(left, operator, right);
@@ -257,14 +255,14 @@ public class FurlangVisitorImpl extends FurlangBaseVisitor<String> {
 
     @Override
     public String visitParexpr(FurlangParser.ParexprContext ctx) {
-        System.out.println("Parexpr: " + ctx.getText());
-        System.out.println(ctx.expr().getText());
+        //System.out.println("Parexpr: " + ctx.getText());
+        //System.out.println(ctx.expr().getText());
         return this.visit(ctx.expr());
     }
 
     @Override
     public String visitLeafexpr(FurlangParser.LeafexprContext ctx) {
-        System.out.println("Leafexpr: " + ctx.getText());
+        //System.out.println("Leafexpr: " + ctx.getText());
 
         // If leafexp is decbin(10) convert the decimal to binary number
         if (ctx.getText().toLowerCase(Locale.ROOT).startsWith("decbin(") && ctx.getText().endsWith(")"))
@@ -274,6 +272,7 @@ public class FurlangVisitorImpl extends FurlangBaseVisitor<String> {
         if (ctx.getText().toLowerCase(Locale.ROOT).startsWith("bindec(b") && ctx.getText().endsWith(")"))
             return Integer.toString(Integer.parseInt(ctx.getText().substring(8, ctx.getText().length() - 1), 2));
 
+        // If leafexp is furry(10) convert the decimal to furry number
         if (ctx.getText().toLowerCase(Locale.ROOT).startsWith("furry(") && ctx.getText().endsWith(")"))
             return intToFurry(Integer.parseInt(ctx.getText().substring(6, ctx.getText().length() - 1)));
 
