@@ -34,7 +34,6 @@ public class Furlang {
         }
 
         System.out.println("\nTesting invalid expressions");
-
         File invalidFile = new File(basePath+invalidTestPath);
         Scanner invalidFileReader;
         try {
@@ -52,7 +51,7 @@ public class Furlang {
                 res = calculator.calculate(line);
             }
             catch (Exception e){
-                System.out.println("Expression " + line + " couldn't be processed. Exception:" + e.toString());
+                System.out.println("Expression " + line + " couldn't be processed. Exception:" + e);
             }
             System.out.println(line + " = " + res);
         }
@@ -78,13 +77,13 @@ public class Furlang {
 
         FurlangLexer lexer = new FurlangLexer(source);
         lexer.removeErrorListeners();
-        lexer.addErrorListener( errorListener );
+        lexer.addErrorListener(errorListener);
 
         CommonTokenStream tokenStream = new CommonTokenStream(lexer);
 
         FurlangParser parser = new FurlangParser(tokenStream);
         parser.removeErrorListeners();
-        parser.addErrorListener( errorListener );
+        parser.addErrorListener(errorListener);
 
         ParseTree tree = parser.expr();
         FurlangVisitorImpl visitor = new FurlangVisitorImpl();
