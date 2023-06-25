@@ -229,7 +229,7 @@ public class FurlangVisitorImpl extends FurlangBaseVisitor<String> {
     }
 
     /**
-     * Visit a parse tree produced by {@link FurlangParser#opexpr}.
+     * Visit a parse tree produced by FurlangParser
      * @param ctx the parse tree
      * @return the visitor result
      */
@@ -304,7 +304,7 @@ public class FurlangVisitorImpl extends FurlangBaseVisitor<String> {
     }
 
     /**
-     * Visit a parse tree produced by {@link FurlangParser#parexpr}.
+     * Visit a parse tree produced by FurlangParser
      * @param ctx the parse tree
      * @return the visitor result
      */
@@ -316,7 +316,7 @@ public class FurlangVisitorImpl extends FurlangBaseVisitor<String> {
     }
 
     /**
-     * Visit a parse tree produced by {@link FurlangParser#leafexpr}.
+     * Visit a parse tree produced by FurlangParser
      * @param ctx the parse tree
      * @return the visitor result
      */
