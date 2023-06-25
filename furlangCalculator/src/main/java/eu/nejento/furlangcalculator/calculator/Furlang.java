@@ -22,10 +22,10 @@ public class Furlang {
         String invalidTestPath = "\\src\\main\\resources\\invalid.txt";
 
         System.out.println("Testing valid expressions");
-        File validFile = new File(basePath+validTestPath);
+        File validFile = new File(basePath + validTestPath);
         try {
             Scanner validFileReader = new Scanner(validFile);
-            while (validFileReader.hasNextLine()){
+            while (validFileReader.hasNextLine()) {
                 String line = validFileReader.nextLine();
                 System.out.println(line + " = " + calculator.calculate(line));
             }
@@ -34,7 +34,7 @@ public class Furlang {
         }
 
         System.out.println("\nTesting invalid expressions");
-        File invalidFile = new File(basePath+invalidTestPath);
+        File invalidFile = new File(basePath + invalidTestPath);
         Scanner invalidFileReader;
         try {
             invalidFileReader = new Scanner(invalidFile);
@@ -43,7 +43,7 @@ public class Furlang {
             return;
         }
 
-        while (invalidFileReader.hasNextLine()){
+        while (invalidFileReader.hasNextLine()) {
             String res = null;
             String line = null;
             try {
@@ -55,16 +55,6 @@ public class Furlang {
             }
             System.out.println(line + " = " + res);
         }
-
-        /*
-        System.out.println(calculator.calculate("2 + 5\n") + " should be 7");  // 7
-        System.out.println(calculator.calculate("2 + 5\n") + " should be 7");  // 7
-        System.out.println(calculator.calculate("2 * 5\n") + " should be 10");  // 10
-        System.out.println(calculator.calculate("2 + 5\n") + " should be 7");  // 7
-        System.out.println(calculator.calculate("2 * 5\n") + " should be 10");  // -10
-        System.out.println(calculator.calculate("3 % 5\n") + " should be 1");  // 011 & 101 = 001 => 1
-        System.out.println(calculator.calculate("(2 + 5) * 3\n") + " should be 21");  // 7.0
-        */
     }
 
     /**
