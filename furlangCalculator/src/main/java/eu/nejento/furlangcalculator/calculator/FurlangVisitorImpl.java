@@ -31,6 +31,11 @@ public class FurlangVisitorImpl extends FurlangBaseVisitor<String> {
         put(9, "Protogen");
     }};
 
+    /**
+     * Converts a furry number to an integer
+     * @param furry furry number to convert
+     * @return the integer
+     */
     private String furryToInt(String furry) {
         String furries = furry.substring(1);
         StringBuilder sb = new StringBuilder();
@@ -51,6 +56,11 @@ public class FurlangVisitorImpl extends FurlangBaseVisitor<String> {
         return sb.toString();
     }
 
+    /**
+     * Converts an integer to a furry number
+     * @param number integer to convert
+     * @return the furry number
+     */
     private String intToFurry(int number) {
         String numberString = Integer.toString(number);
         StringBuilder sb = new StringBuilder();
@@ -61,6 +71,13 @@ public class FurlangVisitorImpl extends FurlangBaseVisitor<String> {
         return sb.toString();
     }
 
+    /**
+     * Handles the expression if both numbers are integers
+     * @param left left side of the expression
+     * @param operator operator of the expression
+     * @param right right side of the expression
+     * @return the result of the expression
+     */
     private String handleInt(String left, String operator, String right) {
         int L = 0;
         if (left != null) L = Integer.parseInt(left);
@@ -83,6 +100,13 @@ public class FurlangVisitorImpl extends FurlangBaseVisitor<String> {
         }
     }
 
+    /**
+     * Handles the expression if both numbers are binary numbers. Right number has to be present and be a binary number
+     * @param left left side of the expression
+     * @param operator operator of the expression
+     * @param right right side of the expression (has to be a binary number)
+     * @return the result of the expression
+     */
     private String handleBool(String left, String operator, String right) {
         int LI = 0;
         if (left != null) LI = Integer.parseInt(left.substring(2), 2);
@@ -105,6 +129,13 @@ public class FurlangVisitorImpl extends FurlangBaseVisitor<String> {
         }
     }
 
+    /**
+     * Processes the expression if the left side is a furry number, processes the number and return the number
+     * @param left left side of the expression (has to be a furry number)
+     * @param operator operator of the expression
+     * @param right right side of the expression
+     * @return the result of the expression
+     */
     public String handleLeftFurry(String left, String operator, String right) {
         // fVlk + 2 = fLev
         // fVlk + fPes = fKůň
@@ -141,7 +172,16 @@ public class FurlangVisitorImpl extends FurlangBaseVisitor<String> {
         }
     }
 
+    /**
+     * Processes the expression if the right side is a furry number, processes the number and return the furry output
+     * @param left left side of the expression
+     * @param operator operator of the expression
+     * @param right right side of the expression (has to be furry number)
+     * @return furry number
+     */
     private String handleRightFurry(String left, String operator, String right) {
+        // 2 + fVlk = 5       //right furry operation
+        // null + fVlk = 3    //right furry operation
         int Ln = 0;
         if (left.toLowerCase(Locale.ROOT).startsWith("f")) {
             String L = furryToInt(left);
@@ -173,6 +213,11 @@ public class FurlangVisitorImpl extends FurlangBaseVisitor<String> {
         }
     }
 
+    /**
+     * Checks if a string is numeric
+     * @param strNum String to check
+     * @return true if numeric, false if not
+     */
     private static boolean isNumeric(String strNum) {
         if (strNum == null) return false;
         try {
@@ -183,6 +228,11 @@ public class FurlangVisitorImpl extends FurlangBaseVisitor<String> {
         return true;
     }
 
+    /**
+     * Visit a parse tree produced by {@link FurlangParser#opexpr}.
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
     @Override
     public String visitOpexpr(FurlangParser.OpexprContext ctx) {
 
@@ -253,6 +303,11 @@ public class FurlangVisitorImpl extends FurlangBaseVisitor<String> {
 
     }
 
+    /**
+     * Visit a parse tree produced by {@link FurlangParser#parexpr}.
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
     @Override
     public String visitParexpr(FurlangParser.ParexprContext ctx) {
         //System.out.println("Parexpr: " + ctx.getText());
@@ -260,6 +315,11 @@ public class FurlangVisitorImpl extends FurlangBaseVisitor<String> {
         return this.visit(ctx.expr());
     }
 
+    /**
+     * Visit a parse tree produced by {@link FurlangParser#leafexpr}.
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
     @Override
     public String visitLeafexpr(FurlangParser.LeafexprContext ctx) {
         //System.out.println("Leafexpr: " + ctx.getText());

@@ -67,11 +67,21 @@ public class Furlang {
         */
     }
 
+    /**
+     * Calculates the result of the given source code.
+     * @param source The source code to be calculated.
+     * @return The result of the calculation.
+     */
     private String calculate(String source) {
         CodePointCharStream input = CharStreams.fromString(source);
         return compile(input);
     }
 
+    /**
+     * Compiles the given source code.
+     * @param source The source code to be compiled.
+     * @return The result of the compilation.
+     */
     private String compile(CharStream source) {
         FurlangErrorListener errorListener = new FurlangErrorListener();
 
